@@ -1,6 +1,7 @@
-import React from 'react';
-import { Quote, Sparkles } from 'lucide-react';
-import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Quote } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export function QuotesSection() {
   const quotes = [
@@ -42,57 +43,59 @@ export function QuotesSection() {
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % quotes.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [quotes.length]);
+
   return (
     <section id="legacy" className="relative w-full py-24 sm:py-32 px-6 sm:px-10 bg-[#03060c] overflow-hidden">
-      {/* Subtle stadium light beams */}
       <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[25vh] bg-[#75AADB]/[0.03] rounded-full blur-[140px]" />
 
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <ScrollReveal direction="up" distance={30} className="text-center max-w-2xl mx-auto mb-16">
+      <div className="max-w-4xl mx-auto">
+        <ScrollReveal direction="up" distance={30} className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] text-white/70 text-[10px] sm:text-[11px] font-editorial uppercase tracking-[0.3em] mb-4">
             <Quote className="w-3 h-3 text-[#75AADB]" />
             <span>WORDS OF THE IMMORTAL</span>
           </div>
-
-          <h2 className="font-bebas text-4xl sm:text-5xl md:text-6xl tracking-wider uppercase text-white">
+          <h2 className="font-bebas text-4xl sm:text-5xl tracking-wider uppercase text-white">
             PHILOSOPHY & VOICES
           </h2>
-
-          <p className="mt-3 text-sm sm:text-base text-white/60 font-light tracking-wide leading-relaxed">
-            What the world's football architects said when words failed to explain his genius.
-          </p>
         </ScrollReveal>
 
-        {/* Quotes Grid */}
-        <StaggerContainer staggerDelay={0.09} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {quotes.map((q, idx) => (
-            <StaggerItem key={idx}>
-              <div
-                className={`relative p-8 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] border ${
-                  q.featured
-                    ? 'border-[#75AADB]/30 bg-gradient-to-b from-[#75AADB]/[0.04] to-transparent'
-                    : 'border-white/[0.07] hover:border-white/20'
-                } backdrop-blur-sm transition-all duration-300 h-full flex flex-col justify-between shadow-xl shadow-black/40`}
-              >
-                <Quote className="w-6 h-6 text-[#75AADB]/40 mb-4" />
-
-                <p className="font-serif italic text-sm sm:text-base text-white/85 leading-relaxed mb-6">
-                  "{q.text}"
-                </p>
-
-                <div className="pt-4 border-t border-white/5">
-                  <div className="font-editorial text-xs tracking-[0.2em] uppercase font-semibold text-white">
-                    {q.author}
-                  </div>
-                  <div className="font-editorial text-[10px] tracking-[0.15em] uppercase text-white/40 mt-0.5">
-                    {q.role}
-                  </div>
+        <div className="relative h-[300px] sm:h-[250px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+              className={`relative p-8 sm:p-10 rounded-3xl border backdrop-blur-sm h-full w-full flex flex-col justify-center items-center text-center shadow-2xl ${
+                quotes[activeIndex].featured
+                  ? 'border-[#75AADB]/30 bg-gradient-to-b from-[#75AADB]/[0.05] to-transparent'
+                  : 'border-white/[0.07] bg-white/[0.02]'
+              }`}
+            >
+              <Quote className="w-8 h-8 text-[#75AADB]/40 mb-6" />
+              <p className="font-serif italic text-base sm:text-lg text-white/85 leading-relaxed mb-8 max-w-2xl">
+                "{quotes[activeIndex].text}"
+              </p>
+              <div>
+                <div className="font-editorial text-xs tracking-[0.2em] uppercase font-semibold text-white">
+                  {quotes[activeIndex].author}
+                </div>
+                <div className="font-editorial text-[10px] tracking-[0.15em] uppercase text-white/40 mt-1">
+                  {quotes[activeIndex].role}
                 </div>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

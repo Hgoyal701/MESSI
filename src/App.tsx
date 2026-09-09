@@ -15,6 +15,7 @@ import { QuotesSection } from './components/QuotesSection';
 import { FinalFooter } from './components/FinalFooter';
 import { StatsModal } from './components/StatsModal';
 import { LegacyModal } from './components/LegacyModal';
+import { MessiMomentsToast } from './components/MessiMomentsToast';
 
 export default function App() {
   const [statsOpen, setStatsOpen] = useState(false);
@@ -146,6 +147,7 @@ export default function App() {
         initialTab={legacyTab}
         onClose={() => setLegacyOpen(false)}
       />
+      <MessiMomentsToast />
     </div>
   );
 }

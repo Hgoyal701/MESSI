@@ -2,6 +2,7 @@ import React from 'react';
 import { Trophy, Globe, Shield, Star, CheckCircle2, ChevronRight } from 'lucide-react';
 import { ScrollReveal, StaggerContainer, StaggerItem } from './ScrollReveal';
 import { InteractiveGlassCard } from './InteractiveGlassCard';
+import { StadiumParticlesCanvas } from './StadiumParticlesCanvas';
 
 export function ArgentinaSection({ onOpenArgentinaDetails }: { onOpenArgentinaDetails: () => void }) {
   const qatarMatches = [
@@ -40,6 +41,9 @@ export function ArgentinaSection({ onOpenArgentinaDetails }: { onOpenArgentinaDe
 
   return (
     <section id="argentina" className="relative w-full py-24 sm:py-32 px-6 sm:px-10 bg-[#03060d] overflow-hidden">
+      {/* Light Ember Particles */}
+      <StadiumParticlesCanvas />
+
       {/* Argentina Albiceleste subtle vertical glow stripes */}
       <div className="pointer-events-none absolute inset-0 flex justify-center opacity-[0.03]">
         <div className="w-[18vw] h-full bg-[#75AADB]" />
