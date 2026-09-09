@@ -1,0 +1,6 @@
+{
+  "name": "Lionel Messi - The Art of Football",
+  "description": "A cinematic Argentina × Lionel Messi football poster experience featuring luxury editorial typography, dynamic layered parallax, and atmospheric stadium aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

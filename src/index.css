@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-bebas {
+    font-family: 'Bebas Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+  .font-montserrat {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .font-space {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .text-glow-skyblue {
+    text-shadow: 0 0 35px rgba(117, 170, 219, 0.28), 0 0 70px rgba(117, 170, 219, 0.12);
+  }
+
+  .text-glow-subtle {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .text-stroke-argentina {
+    -webkit-text-stroke: 1.5px rgba(117, 170, 219, 0.35);
+  }
+
+  .text-stroke-ghost {
+    -webkit-text-stroke: 1px rgba(163, 210, 247, 0.15);
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #03060c;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #75aadb;
+}
