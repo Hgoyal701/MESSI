@@ -1,21 +1,70 @@
 <!doctype html>
 <html lang="en" class="dark">
   <head>
+    <!-- Character Encoding & Viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Page Title & Description -->
     <title>Lionel Messi - The Art of Football</title>
     <meta name="description" content="A cinematic Argentina × Lionel Messi football poster experience featuring luxury editorial typography, dynamic layered parallax, and atmospheric stadium aesthetics." />
+
+    <!-- Open Graph (Social Media) -->
     <meta property="og:title" content="Lionel Messi - The Art of Football" />
     <meta property="og:description" content="A cinematic Argentina × Lionel Messi football poster experience featuring luxury editorial typography, dynamic layered parallax, and atmospheric stadium aesthetics." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://yourdomain.com" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="twitter:title" content="Lionel Messi - The Art of Football" />
+    <meta name="twitter:description" content="A cinematic Argentina × Lionel Messi football poster experience featuring luxury editorial typography, dynamic layered parallax, and atmospheric stadium aesthetics." />
+    <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg" />
+
+    <!-- SEO & Additional Meta -->
+    <meta name="keywords" content="Messi, Football, Argentina, Interactive Experience, Sports" />
+    <meta name="author" content="Your Name/Company" />
+    <meta name="theme-color" content="#03060c" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Font Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <style>
+      /* Critical CSS for above-the-fold content */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body class="bg-[#03060c] text-white selection:bg-[#5CB6E8]/30 selection:text-white overflow-x-hidden">
+    <!-- Root Element for React -->
     <div id="root"></div>
+
+    <!-- Main Application Script -->
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Optional: Preload critical resources (uncomment if needed) -->
+    <!-- <link rel="preload" href="/src/main.tsx" as="script" type="module" /> -->
   </body>
 </html>
-
